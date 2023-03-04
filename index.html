@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <h1>Generate OTP</h1>
+    <p>Click the button below to generate a one-time password:</p>
+    <button onclick="displayOTP()">Generate OTP</button>
+    <p id="otp"></p>
+    <script>
+      function generateOTP() {
+        // Define the length of the OTP
+        const OTP_LENGTH = 6;
+
+        // Define the characters to be used in the OTP
+        const OTP_CHARS = '0123456789';
+
+        let otp = '';
+        for (let i = 0; i < OTP_LENGTH; i++) {
+          otp += OTP_CHARS.charAt(Math.floor(Math.random() * OTP_CHARS.length));
+        }
+        return otp;
+      }
+
+      function displayOTP() {
+        // Generate a new OTP
+        const otp = generateOTP();
+
+        // Get the OTP element
+        const otpElement = document.getElementById('otp');
+
+        // Set the OTP element's text to the generated OTP
+        otpElement.textContent = 'Your one-time password is: ' + otp;
+      }
+    </script>
+  </body>
+</html>
